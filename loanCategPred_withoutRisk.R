@@ -1,6 +1,6 @@
 # R script for gbm model to predict loan category (good or bad)
 # The feature set does not include risk_score
-# validation auc = 
+# validation auc = 0.6826595
 
 library(h2o)
 h2o.init(nthreads = -1)
@@ -66,15 +66,15 @@ gbm_model <- h2o.gbm(x = myX,
                      stopping_metric = "AUC",
                      sample_rate = 0.5,
                      col_sample_rate = 0.7,
-                     col_sample_rate_per_tree = 0.8,
-                     max_depth = 12,
+                     col_sample_rate_per_tree = 0.5,
+                     max_depth = 13,
                      histogram_type = "QuantilesGlobal",
                      score_tree_interval = 10)
 
 print(gbm_model)
 
-# auc for training data = 
-# auc for validation data = 
+# auc for training data = 0.8298375
+# auc for validation data = 0.6826595
 
 h2o.download_pojo(gbm_model, getwd())
 

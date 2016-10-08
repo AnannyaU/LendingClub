@@ -1,3 +1,6 @@
+# R script for graphs plotting probability of good loans for a term vs loan amount for a particular risk class
+
+
 library(ggplot2)
 library(plyr)
 library(Hmisc)
